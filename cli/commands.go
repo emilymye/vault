@@ -54,6 +54,7 @@ import (
 
 	"github.com/hashicorp/vault/audit"
 	"github.com/hashicorp/vault/command"
+	"github.com/hashicorp/vault/helper/gcputil"
 	"github.com/hashicorp/vault/logical"
 	"github.com/hashicorp/vault/meta"
 	"github.com/mitchellh/cli"
@@ -172,6 +173,7 @@ func Commands(metaPtr *meta.Meta) map[string]cli.CommandFactory {
 					"okta":     &credOkta.CLIHandler{},
 					"cert":     &credCert.CLIHandler{},
 					"aws":      &credAws.CLIHandler{},
+					"gcp":      &gcputil.AuthCLIHandler{},
 					"radius":   &credUserpass.CLIHandler{DefaultMount: "radius"},
 				},
 			}, nil
